@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:primeiro_passos/home/home_page.dart';
+import 'package:primeiro_passos/images/images_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: ImagesPage(),
     );
   }
 }
