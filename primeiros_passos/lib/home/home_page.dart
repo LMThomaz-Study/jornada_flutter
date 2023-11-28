@@ -7,7 +7,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AppBar'),
+        title: const Text(
+          'Nossa primeira AppBar',
+        ),
         backgroundColor: Colors.green,
         actions: [
           IconButton(
@@ -26,32 +28,44 @@ class HomePage extends StatelessWidget {
           child: Text('End drawer'),
         ),
       ),
-      body: Center(
-        child: Container(
-          margin: const EdgeInsets.only(
-            left: 10,
-            top: 10,
+      body: Column(
+        children: [
+          const Text(
+            'Academia do Fluuter Custom Font',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontFamily: 'Tourney',
+              fontWeight: FontWeight.bold,
+              color: Colors.redAccent,
+              fontSize: 32,
+            ),
           ),
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: const BorderRadius.all(Radius.circular(32)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(150),
-                blurRadius: 30,
-                offset: const Offset(-2, -4),
-              ),
-              BoxShadow(
-                color: Colors.red.withAlpha(150),
-                blurRadius: 30,
-                offset: const Offset(2, 4),
-              ),
-            ],
-          ),
-          width: 200,
-          height: 200,
-        ),
+          Container(
+            margin: const EdgeInsets.only(
+              left: 10,
+              top: 10,
+            ),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Colors.redAccent,
+              borderRadius: const BorderRadius.all(Radius.circular(32)),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withAlpha(150),
+                  blurRadius: 30,
+                  offset: const Offset(-2, -4),
+                ),
+                BoxShadow(
+                  color: Colors.red.withAlpha(150),
+                  blurRadius: 30,
+                  offset: const Offset(2, 4),
+                ),
+              ],
+            ),
+            width: 200,
+            height: 200,
+          )
+        ],
       ),
     );
   }
