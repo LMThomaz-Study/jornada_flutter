@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
+import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 
 enum PopupMenuPages {
   container,
-  rows_columns,
+  rowsColumns,
+  mediaQuery,
 }
 
 class HomePage extends StatelessWidget {
@@ -27,8 +29,11 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.container:
                   Navigator.of(context).pushNamed(ContainerPage.routeName);
                   break;
-                case PopupMenuPages.rows_columns:
+                case PopupMenuPages.rowsColumns:
                   Navigator.of(context).pushNamed(RowsColumnsPage.routeName);
+                  break;
+                case PopupMenuPages.mediaQuery:
+                  Navigator.of(context).pushNamed(MediaQueryPage.routeName);
                   break;
               }
             },
@@ -39,8 +44,12 @@ class HomePage extends StatelessWidget {
                   child: Text('Container'),
                 ),
                 const PopupMenuItem<PopupMenuPages>(
-                  value: PopupMenuPages.rows_columns,
+                  value: PopupMenuPages.rowsColumns,
                   child: Text('Rows & Columns'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.mediaQuery,
+                  child: Text('Media Query'),
                 ),
               ];
             },
