@@ -11,7 +11,7 @@ class LayoutBuilderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Media Query'),
+        title: const Text('Layout Builder'),
       ),
       body: Center(child: LayoutBuilder(
         builder: (context, constraints) {

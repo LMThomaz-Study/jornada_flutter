@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
@@ -9,6 +10,7 @@ enum PopupMenuPages {
   rowsColumns,
   mediaQuery,
   layoutBuilder,
+  buttonsRotationText,
 }
 
 class HomePage extends StatelessWidget {
@@ -40,6 +42,10 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.layoutBuilder:
                   Navigator.of(context).pushNamed(LayoutBuilderPage.routeName);
                   break;
+                case PopupMenuPages.buttonsRotationText:
+                  Navigator.of(context)
+                      .pushNamed(BotoesRotacaoTextoPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -59,6 +65,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.layoutBuilder,
                   child: Text('Layout Builder'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.buttonsRotationText,
+                  child: Text('Botões e Rotações de texto'),
                 ),
               ];
             },
