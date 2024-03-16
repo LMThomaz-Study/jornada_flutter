@@ -6,6 +6,8 @@ import 'package:primeiro_projeto/pages/home/home_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
+import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
+import 'package:primeiro_projeto/pages/scrolls/singlechildscrollview_page.dart';
 
 void main() {
   runApp(
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
         MediaQueryPage.routeName: (_) => const MediaQueryPage(),
         LayoutBuilderPage.routeName: (_) => const LayoutBuilderPage(),
         BotoesRotacaoTextoPage.routeName: (_) => const BotoesRotacaoTextoPage(),
+        ListviewPage.routeName: (_) => const ListviewPage(),
+        SinglechildscrollviewPage.routeName: (_) =>
+            const SinglechildscrollviewPage(),
       },
     );
   }

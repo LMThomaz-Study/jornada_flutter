@@ -4,6 +4,8 @@ import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
+import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
+import 'package:primeiro_projeto/pages/scrolls/singlechildscrollview_page.dart';
 
 enum PopupMenuPages {
   container,
@@ -11,6 +13,8 @@ enum PopupMenuPages {
   mediaQuery,
   layoutBuilder,
   buttonsRotationText,
+  scrollsSingleChildScrollView,
+  scrollsListView,
 }
 
 class HomePage extends StatelessWidget {
@@ -46,6 +50,13 @@ class HomePage extends StatelessWidget {
                   Navigator.of(context)
                       .pushNamed(BotoesRotacaoTextoPage.routeName);
                   break;
+                case PopupMenuPages.scrollsSingleChildScrollView:
+                  Navigator.of(context)
+                      .pushNamed(SinglechildscrollviewPage.routeName);
+                  break;
+                case PopupMenuPages.scrollsListView:
+                  Navigator.of(context).pushNamed(ListviewPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -69,6 +80,14 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.buttonsRotationText,
                   child: Text('Botões e Rotações de texto'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.scrollsSingleChildScrollView,
+                  child: Text('Scrolls - Single Child Scroll View'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.scrollsListView,
+                  child: Text('Scrolls - List View'),
                 ),
               ];
             },
