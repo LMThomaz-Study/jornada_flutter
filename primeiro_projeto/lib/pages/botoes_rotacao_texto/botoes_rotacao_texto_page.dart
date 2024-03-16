@@ -78,7 +78,7 @@ class BotoesRotacaoTextoPage extends StatelessWidget {
                       return const Size(160, 42);
                     }
 
-                    return const Size(150, 42);
+                    return const Size(150, 48);
                   },
                 ),
                 backgroundColor: MaterialStateProperty.resolveWith(
