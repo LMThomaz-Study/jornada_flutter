@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
+import 'package:primeiro_projeto/pages/forms/forms_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
@@ -19,6 +20,7 @@ enum PopupMenuPages {
   scrollsListView,
   dialogs,
   snackbar,
+  forms,
 }
 
 class HomePage extends StatelessWidget {
@@ -67,6 +69,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.snackbar:
                   Navigator.of(context).pushNamed(SnackbarPage.routeName);
                   break;
+                case PopupMenuPages.forms:
+                  Navigator.of(context).pushNamed(FormsPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -106,6 +111,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.snackbar,
                   child: Text('Snackbar'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.forms,
+                  child: Text('Formulários'),
                 ),
               ];
             },
