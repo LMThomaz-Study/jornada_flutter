@@ -9,6 +9,7 @@ import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/singlechildscrollview_page.dart';
+import 'package:primeiro_projeto/pages/snackbar/snackbar_page.dart';
 
 void main() {
   runApp(
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         ListviewPage.routeName: (_) => const ListviewPage(),
         SinglechildscrollviewPage.routeName: (_) =>
             const SinglechildscrollviewPage(),
+        SnackbarPage.routeName: (_) => const SnackbarPage(),
       },
     );
   }

@@ -7,6 +7,7 @@ import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/singlechildscrollview_page.dart';
+import 'package:primeiro_projeto/pages/snackbar/snackbar_page.dart';
 
 enum PopupMenuPages {
   container,
@@ -17,6 +18,7 @@ enum PopupMenuPages {
   scrollsSingleChildScrollView,
   scrollsListView,
   dialogs,
+  snackbar,
 }
 
 class HomePage extends StatelessWidget {
@@ -62,6 +64,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.dialogs:
                   Navigator.of(context).pushNamed(DialogsPage.routeName);
                   break;
+                case PopupMenuPages.snackbar:
+                  Navigator.of(context).pushNamed(SnackbarPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -97,6 +102,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.dialogs,
                   child: Text('Dialogs'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.snackbar,
+                  child: Text('Snackbar'),
                 ),
               ];
             },
