@@ -27,8 +27,16 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.redAccent,
+        primaryColorLight: Colors.red,
+        primaryColorDark: Colors.purple,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.redAccent,
+          ),
+        ),
       ),
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
