@@ -8,6 +8,7 @@ import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
+import 'package:primeiro_projeto/pages/material_banner/material_banner_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
@@ -33,6 +34,7 @@ enum PopupMenuPages {
   bottomNavigatorBar,
   circleAvatar,
   colors,
+  materialBanner,
 }
 
 class HomePage extends StatelessWidget {
@@ -103,6 +105,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.colors:
                   Navigator.of(context).pushNamed(ColorsPage.routeName);
                   break;
+                case PopupMenuPages.materialBanner:
+                  Navigator.of(context).pushNamed(MaterialBannerPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -170,6 +175,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.colors,
                   child: Text('Cores'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.materialBanner,
+                  child: Text('Material Banner'),
                 ),
               ];
             },

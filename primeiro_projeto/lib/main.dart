@@ -10,6 +10,7 @@ import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
 import 'package:primeiro_projeto/pages/home/home_page.dart';
 import 'package:primeiro_projeto/pages/layout_builder/layout_builder_page.dart';
+import 'package:primeiro_projeto/pages/material_banner/material_banner_page.dart';
 import 'package:primeiro_projeto/pages/media_query/media_query_page.dart';
 import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
@@ -67,6 +68,7 @@ class MyApp extends StatelessWidget {
         BottomNavigatorBarPage.routeName: (_) => const BottomNavigatorBarPage(),
         CircleAvatarPage.routeName: (_) => const CircleAvatarPage(),
         ColorsPage.routeName: (_) => const ColorsPage(),
+        MaterialBannerPage.routeName: (_) => const MaterialBannerPage(),
       },
     );
   }
