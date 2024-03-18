@@ -10,6 +10,7 @@ import 'package:primeiro_projeto/pages/rows_columns/rows_columns_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/listview_page.dart';
 import 'package:primeiro_projeto/pages/scrolls/singlechildscrollview_page.dart';
 import 'package:primeiro_projeto/pages/snackbar/snackbar_page.dart';
+import 'package:primeiro_projeto/pages/stack/stack_page.dart';
 
 enum PopupMenuPages {
   container,
@@ -23,6 +24,7 @@ enum PopupMenuPages {
   snackbar,
   forms,
   cities,
+  stack,
 }
 
 class HomePage extends StatelessWidget {
@@ -77,6 +79,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.cities:
                   Navigator.of(context).pushNamed(CidadesPage.routeName);
                   break;
+                case PopupMenuPages.stack:
+                  Navigator.of(context).pushNamed(StackPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -124,6 +129,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.cities,
                   child: Text('Cidades'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.stack,
+                  child: Text('Stacks'),
                 ),
               ];
             },
