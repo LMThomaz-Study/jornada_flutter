@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
+import 'package:primeiro_projeto/pages/bottom_navigator_bar/bottom_navigator_bar_page.dart';
 import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
@@ -27,6 +28,7 @@ enum PopupMenuPages {
   cities,
   stack,
   stack2,
+  bottomNavigatorBar,
 }
 
 class HomePage extends StatelessWidget {
@@ -87,6 +89,10 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.stack2:
                   Navigator.of(context).pushNamed(StackPage2.routeName);
                   break;
+                case PopupMenuPages.bottomNavigatorBar:
+                  Navigator.of(context)
+                      .pushNamed(BottomNavigatorBarPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -142,6 +148,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.stack2,
                   child: Text('Stack Exemplo'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.bottomNavigatorBar,
+                  child: Text('Bottom Navigator Bar'),
                 ),
               ];
             },
