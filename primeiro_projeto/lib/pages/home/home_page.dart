@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
 import 'package:primeiro_projeto/pages/bottom_navigator_bar/bottom_navigator_bar_page.dart';
 import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
+import 'package:primeiro_projeto/pages/circle_avatar/circle_avatar_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
@@ -29,6 +30,7 @@ enum PopupMenuPages {
   stack,
   stack2,
   bottomNavigatorBar,
+  circleAvatar,
 }
 
 class HomePage extends StatelessWidget {
@@ -93,6 +95,9 @@ class HomePage extends StatelessWidget {
                   Navigator.of(context)
                       .pushNamed(BottomNavigatorBarPage.routeName);
                   break;
+                case PopupMenuPages.circleAvatar:
+                  Navigator.of(context).pushNamed(CircleAvatarPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -152,6 +157,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.bottomNavigatorBar,
                   child: Text('Bottom Navigator Bar'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.circleAvatar,
+                  child: Text('Circle Avatar'),
                 ),
               ];
             },
