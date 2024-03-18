@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
+import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
@@ -21,6 +22,7 @@ enum PopupMenuPages {
   dialogs,
   snackbar,
   forms,
+  cities,
 }
 
 class HomePage extends StatelessWidget {
@@ -72,6 +74,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.forms:
                   Navigator.of(context).pushNamed(FormsPage.routeName);
                   break;
+                case PopupMenuPages.cities:
+                  Navigator.of(context).pushNamed(CidadesPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -115,6 +120,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.forms,
                   child: Text('Formulários'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.cities,
+                  child: Text('Cidades'),
                 ),
               ];
             },
