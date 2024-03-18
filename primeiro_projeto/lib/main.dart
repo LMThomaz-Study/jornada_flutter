@@ -4,6 +4,7 @@ import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto
 import 'package:primeiro_projeto/pages/bottom_navigator_bar/bottom_navigator_bar_page.dart';
 import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:primeiro_projeto/pages/circle_avatar/circle_avatar_page.dart';
+import 'package:primeiro_projeto/pages/colors/colors_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
         StackPage2.routeName: (_) => const StackPage2(),
         BottomNavigatorBarPage.routeName: (_) => const BottomNavigatorBarPage(),
         CircleAvatarPage.routeName: (_) => const CircleAvatarPage(),
+        ColorsPage.routeName: (_) => const ColorsPage(),
       },
     );
   }

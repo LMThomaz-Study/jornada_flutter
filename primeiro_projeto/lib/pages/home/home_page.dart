@@ -3,6 +3,7 @@ import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto
 import 'package:primeiro_projeto/pages/bottom_navigator_bar/bottom_navigator_bar_page.dart';
 import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:primeiro_projeto/pages/circle_avatar/circle_avatar_page.dart';
+import 'package:primeiro_projeto/pages/colors/colors_page.dart';
 import 'package:primeiro_projeto/pages/container/container_page.dart';
 import 'package:primeiro_projeto/pages/dialogs/dialogs_page.dart';
 import 'package:primeiro_projeto/pages/forms/forms_page.dart';
@@ -31,6 +32,7 @@ enum PopupMenuPages {
   stack2,
   bottomNavigatorBar,
   circleAvatar,
+  colors,
 }
 
 class HomePage extends StatelessWidget {
@@ -98,6 +100,9 @@ class HomePage extends StatelessWidget {
                 case PopupMenuPages.circleAvatar:
                   Navigator.of(context).pushNamed(CircleAvatarPage.routeName);
                   break;
+                case PopupMenuPages.colors:
+                  Navigator.of(context).pushNamed(ColorsPage.routeName);
+                  break;
               }
             },
             itemBuilder: (BuildContext context) {
@@ -161,6 +166,10 @@ class HomePage extends StatelessWidget {
                 const PopupMenuItem<PopupMenuPages>(
                   value: PopupMenuPages.circleAvatar,
                   child: Text('Circle Avatar'),
+                ),
+                const PopupMenuItem<PopupMenuPages>(
+                  value: PopupMenuPages.colors,
+                  child: Text('Cores'),
                 ),
               ];
             },
