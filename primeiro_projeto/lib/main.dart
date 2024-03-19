@@ -2,6 +2,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:primeiro_projeto/pages/botoes_rotacao_texto/botoes_rotacao_texto_page.dart';
 import 'package:primeiro_projeto/pages/bottom_navigator_bar/bottom_navigator_bar_page.dart';
+import 'package:primeiro_projeto/pages/challenge/challenge_page.dart';
 import 'package:primeiro_projeto/pages/cidades/cidades_page.dart';
 import 'package:primeiro_projeto/pages/circle_avatar/circle_avatar_page.dart';
 import 'package:primeiro_projeto/pages/colors/colors_page.dart';
@@ -49,8 +50,10 @@ class MyApp extends StatelessWidget {
       ),
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
+      initialRoute: ChallengePage.routeName,
       routes: {
         HomePage.routeName: (_) => const HomePage(),
+        ChallengePage.routeName: (_) => const ChallengePage(),
         ContainerPage.routeName: (_) => const ContainerPage(),
         RowsColumnsPage.routeName: (_) => const RowsColumnsPage(),
         MediaQueryPage.routeName: (_) => const MediaQueryPage(),
