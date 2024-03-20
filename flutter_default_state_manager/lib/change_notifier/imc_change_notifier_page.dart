@@ -1,47 +1,37 @@
-import 'dart:math';
-
 import 'package:currency_text_input_formatter/currency_text_input_formatter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_default_state_manager/change_notifier/imc_change_notifier_controller.dart';
 import 'package:flutter_default_state_manager/widgets/imc_gauge.dart';
 import 'package:intl/intl.dart';
 
-//   o ValueNotifier diferentemente do setState que faz a reconstrução de todo o Widget,
-//ele faz a reconstrução apenas de onde ele está sendo utilizado
+//  o ChangeNotifier é basicamente um observável, do qual terá ouvintes (listens)
+//do qual serão alterados com a mudança, um detalhe é que todas as variáveis dentro do changeNotifier irão disparar um notifier
 
-class ImcValueNotifierPage extends StatefulWidget {
-  const ImcValueNotifierPage({super.key});
+class ImcChangeNotifierPage extends StatefulWidget {
+  const ImcChangeNotifierPage({super.key});
 
   @override
-  State<ImcValueNotifierPage> createState() => _ImcValueNotifierPageState();
+  State<ImcChangeNotifierPage> createState() => _ImcChangeNotifierPageState();
 }
 
-class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
+class _ImcChangeNotifierPageState extends State<ImcChangeNotifierPage> {
+  final controller = ImcChangeNotifierController();
   final formKey = GlobalKey<FormState>();
   final pesoEC = TextEditingController();
   final alturaEC = TextEditingController();
-
-  ValueNotifier<double> imc = ValueNotifier(0.0);
-
-  Future<void> _calcIMC({required double peso, required double altura}) async {
-    imc.value = 0;
-
-    await Future.delayed(const Duration(seconds: 1));
-
-    imc.value = peso / pow(altura, 2);
-  }
 
   @override
   void dispose() {
     pesoEC.dispose();
     alturaEC.dispose();
-    imc.dispose();
+    controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('IMC Value Notifier')),
+      appBar: AppBar(title: const Text('IMC Change Notifier')),
       body: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -49,10 +39,10 @@ class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                ValueListenableBuilder<double>(
-                  valueListenable: imc,
-                  builder: (_, value, __) {
-                    return ImcGauge(imc: value);
+                AnimatedBuilder(
+                  animation: controller,
+                  builder: (context, child) {
+                    return ImcGauge(imc: controller.imc);
                   },
                 ),
                 const SizedBox(height: 20),
@@ -110,7 +100,7 @@ class _ImcValueNotifierPageState extends State<ImcValueNotifierPage> {
                       );
                       double peso = formatter.parse(pesoEC.text) as double;
                       double altura = formatter.parse(alturaEC.text) as double;
-                      _calcIMC(peso: peso, altura: altura);
+                      controller.calcIMC(peso: peso, altura: altura);
                     }
                   },
                   child: const Text(
