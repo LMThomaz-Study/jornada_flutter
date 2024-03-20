@@ -5,6 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_default_state_manager/widgets/imc_gauge.dart';
 import 'package:intl/intl.dart';
 
+//  O setState é simples e básico, porém seu "problema"
+//é que na invocação do mesmo irá reconstruir toda a página,
+//além de que caso eu queira que um Widget filho atualize o pai, com o setState isso não é possível
+
 class ImcSetstatePage extends StatefulWidget {
   const ImcSetstatePage({super.key});
 
