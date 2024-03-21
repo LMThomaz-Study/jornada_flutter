@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inherited_widget_exemple/model/user_model.dart';
 
 class DrawerPage extends StatelessWidget {
   const DrawerPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Drawer(
+    final user = UserModel.of(context);
+    return Drawer(
       child: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircleAvatar(),
-              SizedBox(height: 10),
+              CircleAvatar(
+                backgroundImage: NetworkImage(user.avatar),
+              ),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Text(
-                    'Leonardo Thomaz',
-                    // style: Theme.of(context).textTheme.titleSmall,
+                    user.name,
+                    style: Theme.of(context).textTheme.titleSmall,
                   ),
                   Text(
-                    '18/09/1999',
-                    // style: Theme.of(context).textTheme.labelSmall,
+                    '(${user.birthDate})',
+                    style: Theme.of(context).textTheme.labelSmall,
                   ),
                 ],
               )

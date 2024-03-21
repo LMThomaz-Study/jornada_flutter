@@ -12,9 +12,9 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
 
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   Navigator.of(context).pushNamed('/home');
-    // });
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Navigator.of(context).pushNamed('/home');
+    });
   }
 
   @override
