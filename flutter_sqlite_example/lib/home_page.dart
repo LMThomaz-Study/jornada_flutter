@@ -12,7 +12,50 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    DatabaseSqLite().openConnection();
+    _database();
+  }
+
+  Future<void> _database() async {
+    final database = await DatabaseSqLite().openConnection();
+
+    await database.insert(
+      'teste',
+      {'nome': 'Leonardo Thomaz'},
+    );
+
+    await database.delete(
+      'teste',
+      where: 'nome = ?',
+      whereArgs: ['Leonardo Thomaz'],
+    );
+
+    await database.update(
+      'teste',
+      {'nome': 'Thomaz'},
+      where: 'nome = ?',
+      whereArgs: ['Leonardo Thomaz'],
+    );
+
+    final result = await database.query('teste');
+    print(result);
+
+    await database.rawInsert(
+      'INSERT INTO teste VALUES(null, ?)',
+      ['Robertinho Guerreiro'],
+    );
+
+    await database.rawUpdate(
+      'UPDATE teste SET nome = ? WHERE id = ?',
+      ['Cleiton Pondera', 1],
+    );
+
+    await database.rawDelete(
+      'DELETE FROM teste WHERE id = ?',
+      [1],
+    );
+
+    final result2 = await database.rawQuery('SELECT * FROM teste');
+    print(result2);
   }
 
   @override

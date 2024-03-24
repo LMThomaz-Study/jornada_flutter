@@ -2,11 +2,11 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseSqLite {
-  Future<void> openConnection() async {
+  Future<Database> openConnection() async {
     final databasePath = await getDatabasesPath();
     final databaseFinalPath = join(databasePath, 'SQLITE_EXAMPLE');
 
-    await openDatabase(
+    return await openDatabase(
       databaseFinalPath,
       version: 2,
       // Chamado a cada conexão ao banco de dados
