@@ -3,6 +3,7 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_field.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_logo.dart';
+import 'package:todo_list_provider/app/modules/auth/register/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = '/login';
@@ -102,7 +103,10 @@ class LoginPage extends StatelessWidget {
                               children: [
                                 const Text('Não tem conta?'),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed(RegisterPage.routeName);
+                                  },
                                   child: const Text('Cadastre-se'),
                                 ),
                               ],
