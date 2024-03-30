@@ -12,6 +12,7 @@
     "sqflite",
     "sqlite",
     "Sqlite",
+    "Validatorless",
     "varchar"
   ]
 }

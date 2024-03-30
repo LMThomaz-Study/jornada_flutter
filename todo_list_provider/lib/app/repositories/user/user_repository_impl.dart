@@ -42,6 +42,5 @@ class UserRepositoryImpl implements UserRepository {
         throw AuthException(message: e.message ?? 'Erro ao registrar usuário');
       }
     }
-    return null;
   }
 }
