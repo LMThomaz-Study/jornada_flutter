@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_list_provider/app/core/ui/theme_extensions.dart';
-import 'package:todo_list_provider/app/core/validators/validators.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_field.dart';
 import 'package:todo_list_provider/app/core/widget/todo_list_logo.dart';
 import 'package:todo_list_provider/app/modules/auth/register/register_controller.dart';
@@ -27,7 +26,6 @@ class _RegisterPageState extends State<RegisterPage> {
     _emailEC.dispose();
     _passwordEC.dispose();
     _confirmPasswordEC.dispose();
-    context.read<RegisterController>().removeListener(() {});
 
     super.dispose();
   }
@@ -144,10 +142,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     obscureText: true,
                     validator: Validatorless.multiple([
                       Validatorless.required('Confirma senha obrigatório'),
-                      Validators.compare(
-                        _passwordEC,
-                        'Senha diferente de confirma senha',
-                      )
+                      Validatorless.compare(
+                          _passwordEC, 'Senha diferente de confirma senha'),
                     ]),
                   ),
                   const SizedBox(height: 20),
