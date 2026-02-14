@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:todo_list_provider/app/exception/auth_exception.dart';
 import 'package:todo_list_provider/app/repositories/user/user_repository.dart';
 
@@ -86,5 +87,52 @@ class UserRepositoryImpl implements UserRepository {
       print(s);
       throw AuthException(message: 'Erro ao restar senha');
     }
+  }
+
+  @override
+  Future<User?> googleLogin() async {
+    List<String>? loginMethods;
+
+    try {
+      final googleSignIn = GoogleSignIn();
+      final googleUser = await googleSignIn.signIn();
+
+      if (googleUser != null) {
+        loginMethods = await _firebaseAuth.fetchSignInMethodsForEmail(googleUser.email);
+
+        if (loginMethods.contains('password')) {
+          throw AuthException(message: 'Você utilizou o e-mail para cadastro no ToDoList, caso tenha esquecido sua senha por favor clique no link Esqueci Minha Senha');
+        } else {
+          final googleAuth = await googleUser.authentication;
+          final firebaseCredentialProvider = GoogleAuthProvider.credential(
+            accessToken: googleAuth.accessToken,
+            idToken: googleAuth.idToken,
+          );
+          final userCredential = await _firebaseAuth.signInWithCredential(firebaseCredentialProvider);
+          return userCredential.user;
+        }
+      }
+
+      return null;
+    } on FirebaseAuthException catch (e, s) {
+      print(e);
+      print(s);
+
+      if (e.code == 'account-exists-with-different-credential') {
+        throw AuthException(message: '''
+          Login com Google não pode ser realizado, pois o e-mail já foi cadastrado com outro método de login.
+          Utilize o método de login que você utilizou para se cadastrar.
+          ${loginMethods?.join(', ')}
+        ''');
+      } else {
+        throw AuthException(message: e.message ?? 'Erro ao realizar login');
+      }
+    }
+  }
+
+  @override
+  Future<void> googleLogout() async {
+    await GoogleSignIn().signOut();
+    _firebaseAuth.signOut();
   }
 }
