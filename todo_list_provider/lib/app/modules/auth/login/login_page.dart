@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
     ).listener(
       context: context,
       successCallback: (notifier, listenerInstance) {
-        print('Login realizado!');
+        debugPrint('Login realizado!');
       },
       everCallback: (notifier, listenerInstance) {
         if (notifier is LoginController) {
